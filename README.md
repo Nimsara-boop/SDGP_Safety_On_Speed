@@ -1,4 +1,4 @@
-#Safety On Speed (SOS)
+# Safety On Speed (SOS)
 
 Safety On Speed (SOS) is a modern personal safety application built using React Native. The platform is designed to deliver rapid assistance during emergencies by instantly connecting users with emergency services and trusted contacts.
 
