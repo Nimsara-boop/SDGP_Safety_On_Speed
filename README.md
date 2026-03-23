@@ -1,50 +1,77 @@
-# Welcome to your Expo app
+#Safety On Speed (SOS)
 
-This is an [Expo](https://expo.dev) project created with [`create-expo-app`](https://www.npmjs.com/package/create-expo-app).
+Safety On Speed (SOS) is a modern personal safety application built using React Native. The platform is designed to deliver rapid assistance during emergencies by instantly connecting users with emergency services and trusted contacts.
 
-## Get started
+🔗 Official Website: https://safetyonspeed.lk/
 
-1. Install dependencies
+📱 Application Overview
 
-   ```bash
-   npm install
-   ```
+The SOS app is centered around a powerful Emergency Flow system, which automates real-time location sharing and alert notifications to ensure quick response in critical situations.
 
-2. Start the app
+## 🚨 Key Features
+One-Tap SOS Alert
+Instantly sends a silent emergency alert with a single tap.
+Emergency Flow (Triple Tap Activation)
+Initiates a high-priority emergency protocol, including a prompt to contact 119 immediately.
+Live Location Tracking & Safety Heatmaps
+View an interactive map of Sri Lanka featuring safety heatmaps and quick filters for nearby:
+Police Stations
+Hospitals
+Pharmacies
+Guardian Contact System
+Add up to five trusted individuals who will receive automatic alerts via SMS and WhatsApp during emergencies.
+Safe Spaces Directory
+Access important emergency hotlines instantly, including:
+Ambulance Services
+Fire & Rescue
+Women & Child Protection Bureau
+Community Forum
+A platform where users can discuss safety concerns, share experiences, and raise awareness.
+🛠 Installation & Setup (Using Expo)
 
-   ```bash
-   npx expo start
-   ```
+This project utilizes Expo to enable smooth cross-platform development and testing.
 
-In the output, you'll find options to open the app in a
+## Prerequisites
+Node.js (LTS version recommended)
+Expo Go app (Android or iOS)
+Supabase account (for backend features, if applicable)
 
-- [development build](https://docs.expo.dev/develop/development-builds/introduction/)
-- [Android emulator](https://docs.expo.dev/workflow/android-studio-emulator/)
-- [iOS simulator](https://docs.expo.dev/workflow/ios-simulator/)
-- [Expo Go](https://expo.dev/go), a limited sandbox for trying out app development with Expo
+Step 1: Clone and Install
+git clone https://github.com/Gagana-Perera/Safety-on-Speed.git
+cd safety-on-speed
+npm install
 
-You can start developing by editing the files inside the **app** directory. This project uses [file-based routing](https://docs.expo.dev/router/introduction).
+Step 2: Environment Configuration
 
-## Get a fresh project
+Create a .env file in the root directory and include your required API keys.
 
-When you're ready, run:
+Step 3: Run the Application
 
-```bash
-npm run reset-project
-```
+Start the development server:
 
-This command will move the starter code to the **app-example** directory and create a blank **app** directory where you can start developing.
+npm run start
 
-## Learn more
+or
 
-To learn more about developing your project with Expo, look at the following resources:
+npx expo start
 
-- [Expo documentation](https://docs.expo.dev/): Learn fundamentals, or go into advanced topics with our [guides](https://docs.expo.dev/guides).
-- [Learn Expo tutorial](https://docs.expo.dev/tutorial/introduction/): Follow a step-by-step tutorial where you'll create a project that runs on Android, iOS, and the web.
+Then:
 
-## Join the community
+Open the Expo Go app on your mobile device
+Scan the QR code displayed in your terminal
+Ensure both devices are connected to the same Wi-Fi network
 
-Join our community of developers creating universal apps.
+## 🏗 System Architecture
+Frontend: React Native (Expo Managed Workflow)
+Styling: NativeWind (Tailwind CSS)
+Navigation: React Navigation (Stack & Bottom Tabs)
+Maps Integration: Google Maps API with heatmap visualization
+Backend: Supabase (Authentication, Database, Real-time services)
 
-- [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
-- [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+## 👥 Development Team
+Gagana Perera (Team Lead)
+Chamethya Yasodie
+Nimsara Karunaratne
+Shenal Arosha
+Amaya Pitawela
+Rivindu Sanjula
