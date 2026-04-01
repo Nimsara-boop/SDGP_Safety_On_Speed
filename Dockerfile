@@ -1,23 +1,33 @@
-#Node 22
-FROM node:22-alpine
+# ── Stage 1: Build ──────────────────────────────────────────────
+FROM node:20-alpine AS builder
 
-#Setting Up folder - container
 WORKDIR /app
 
-COPY package*.json ./
+# Copy dependency files first (better layer caching)
+COPY package.json package-lock.json* yarn.lock* ./
+RUN npm install --legacy-peer-deps
 
-#RUN npm install
-RUN npm config set fetch-retry-maxtimeout 600000 \
-    && npm config set fetch-retry-mintimeout 10000 \
-    && npm config set fetch-retries 5 \
-    && npm install
-RUN npm install -g @expo/ngrok@^4.1.0
-
-# Code
+# Copy the rest of the source
 COPY . .
 
-# Expose the ports Expo uses (Metro Bundler)
-EXPOSE 8081 19000 19001 19002
+# Copy production env vars for the build
+COPY .env.production .env
 
-# Start the app - locally, but with --tunnel
-CMD ["npx", "expo", "start", "--tunnel"]
+# Export the web build (outputs to /app/dist)
+RUN npx expo export --platform web
+
+# ── Stage 2: Serve ──────────────────────────────────────────────
+FROM nginx:alpine
+
+# Remove default nginx page
+RUN rm -rf /usr/share/nginx/html/*
+
+# Copy built static files from Stage 1
+COPY --from=builder /app/dist /usr/share/nginx/html
+
+# Copy our custom Nginx config
+COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+EXPOSE 80
+
+CMD ["nginx", "-g", "daemon off;"]
